@@ -1,0 +1,67 @@
+pip show robotframework - To get the infomration about the package
+pip check robotframework - To get if the broken package details
+
+Run Single Test
+=============
+robot -t <Test Case Name>  <Test Suite Name>
+Eg: robot -t Test2 TestSuite2.robot
+
+Run Multiple Test
+==============
+robot -t <test case name> -t <test case name> <Test Suite name>
+Eg: robot -t Test2 -t Test5 TestSuite2.robot
+
+Run Test with Specific Tags
+=====================
+robot -i or --include <Tag Name> <Suite Name>
+Eg: robot -i Sanity TestSuite2.robot
+
+Run Test with MultipleTags
+=====================
+robot -i <Tag Name> -i <Tag Name> <Suite Name>
+Eg: robot -i Sanity -i Smoke TestSuite2.robot
+
+Run Test with Regular Expression Tag Name
+=================================
+robot -i S* <Test Suite Name>
+
+Run all the Test in Test Suite
+=====================
+robot <Test Suite Name>
+robot TestSuite2.robot
+
+Run Report to Specific Folder
+======================
+robot -t <Test Case Name> -d <Folder Location> <Test Suite Name>
+
+Run Test with Exculding some Test Case
+==============================
+robot -e or --exclude <Tag Name> <Test Suite Name>
+
+Run Report with Timestamp
+=====================
+robot -T -d <Report Folder path> -n noncritical-i <Tag Name> <Test Suite Name>
+Eg: robot -T -d reports -n noncritical -i Sanity TestSuite2.robot
+
+Run Test As Critical
+===============
+robot -i <Tag Name> --critical or -c Smoke <Test Suite Name>
+
+Run Test As Critical
+===============
+robot -i <Tag Name> --noncritical or -n Smoke <Test Suite Name>
+
+robot -T --> for capturing the report with timestamp
+robot -d --> Redirect to a directory
+robot -i --> short for --include which means include for testing only those test cases with this tag
+robot -n --> Short for --noncritical. This tells Robot Framework what tag indicates a non-critical test 
+
+Run Robotframework from Jenkins
+==========================
+Start Jenkins
+==========
+java -jar jenkins.war --httpPort=9191
+default port is 8080
+
+Manage Jenkins
+============
